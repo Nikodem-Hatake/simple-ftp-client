@@ -1,3 +1,5 @@
 <Solution>
-  <Project Path="FTP client/FTP client.csproj" />
+  <Project Path="FTP client/FTP client.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
 </Solution>

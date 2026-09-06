@@ -1,0 +1,21 @@
+﻿<MudTable 
+    @bind-SelectedItem="_selectedItem"
+    Breakpoint="Breakpoint.None"
+    Items="_items" 
+    Loading="_isLoading"
+    PagerPosition="PagerPosition.Bottom"
+>
+    <HeaderContent>
+        <MudTh>Name</MudTh>
+        <MudTh>Size</MudTh>
+        <MudTh>Last modified</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd>@context.Name</MudTd>
+        <MudTd>@context.Size</MudTd>
+        <MudTd>@context.Modified.ToString("dd.MM.yyyy HH:mm:ss")</MudTd>
+    </RowTemplate>
+    <PagerContent>
+        <MudTablePager/>
+    </PagerContent>
+</MudTable>

@@ -1,5 +1,22 @@
 ﻿@page "/"
 
 <MudGrid>
-
+    <MudItem
+        xs="12"
+        lg="4"
+    >
+        <ConnectionFormComponent
+            FTPClient="_ftpClient"
+            OnSuccessfullConnectionEventCallback="OnSuccessfullConnection"
+        />
+    </MudItem>
+    <MudItem
+        xs="12"
+        lg="8"
+    >
+        <ConnectionItemsComponent
+            FTPClient="_ftpClient"
+            @ref="ConnectionItemsComponent"
+        />
+    </MudItem>
 </MudGrid>

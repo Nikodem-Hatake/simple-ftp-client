@@ -1,0 +1,22 @@
+﻿<MudCard>
+    <MudCardContent>
+        <MudForm>
+            <MudTextField
+                @bind-Value="_serverAddress"
+                Label="Server address"
+            />
+            <MudTextField
+                @bind-Value="_userName"
+                Label="User name"
+            />
+            <MudTextField
+                @bind-Value="_password"
+                Label="password"
+                InputType="InputType.Password"
+            />
+        </MudForm>
+    </MudCardContent>
+    <MudCardActions>
+        <MudButton Disabled="_isFormDisabled" OnClick="Connect" Variant="Variant.Filled">Connect</MudButton>
+    </MudCardActions>
+</MudCard>

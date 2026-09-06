@@ -4,7 +4,7 @@
 <MudPopoverProvider/>
 <MudSnackbarProvider/>
 
-<MudLayout>
+<MudLayout class="mt-10">
     <MudAppBar>
         <MudSwitch 
             @bind-Value="_isDarkMode"
@@ -14,6 +14,8 @@
     </MudAppBar>
 
     <MudMainContent>
-        @Body
+        <MudContainer MaxWidth="MaxWidth.ExtraLarge">
+            @Body
+        </MudContainer>
     </MudMainContent>
 </MudLayout>
