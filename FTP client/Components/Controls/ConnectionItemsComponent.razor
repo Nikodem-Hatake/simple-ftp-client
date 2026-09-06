@@ -1,20 +1,48 @@
-﻿<MudTable 
+﻿<style>
+    .selected 
+    {
+        background-color: @Colors.DeepPurple.Lighten1 !important;
+    }
+
+    .selected > td 
+    {
+        color: white !important;
+    }
+
+    .selected > td .mud-input 
+    {
+        color: white !important;
+    }
+</style>
+
+<MudTable 
     @bind-SelectedItem="_selectedItem"
     Breakpoint="Breakpoint.None"
+    Hover="true"
     Items="_items" 
     Loading="_isLoading"
     PagerPosition="PagerPosition.Bottom"
+    RowClassFunc="@SelectedRowClassFunc"
 >
+    <ToolBarContent>
+        <ItemsManagingButtonsComponent 
+            FTPClient="FTPClient"
+            SelectedItem="_selectedItem"
+        />
+    </ToolBarContent>
+
     <HeaderContent>
         <MudTh>Name</MudTh>
         <MudTh>Size</MudTh>
         <MudTh>Last modified</MudTh>
     </HeaderContent>
+
     <RowTemplate>
-        <MudTd>@context.Name</MudTd>
-        <MudTd>@context.Size</MudTd>
+        <MudTd><MudIcon Icon="@ItemIconConverter.Convert(context.Type)"/> @context.Name</MudTd>
+        <MudTd>@ByteSizeConverter.Convert(context.Size)</MudTd>
         <MudTd>@context.Modified.ToString("dd.MM.yyyy HH:mm:ss")</MudTd>
     </RowTemplate>
+
     <PagerContent>
         <MudTablePager/>
     </PagerContent>

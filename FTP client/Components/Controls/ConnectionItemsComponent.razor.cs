@@ -1,5 +1,6 @@
 using FluentFTP;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 using MudBlazor;
 
 namespace FTP_client.Components.Controls;
@@ -26,5 +27,14 @@ public partial class ConnectionItemsComponent(ISnackbar snackbar)
             _snackbar.Add($"Error: {e.Message}");
         }
         _isLoading = false;
+    }
+
+    private string SelectedRowClassFunc(FtpListItem item, int rowNumber)
+    {
+        if(ReferenceEquals(item, _selectedItem))
+        {
+            return "selected";
+        }
+        return string.Empty;
     }
 }

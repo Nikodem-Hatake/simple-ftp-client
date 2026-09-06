@@ -1,0 +1,40 @@
+﻿<MudPaper class="mt-10 pa-4">
+    <MudStack>
+        <MudFileUpload    
+            @bind-Files="_filesToUpload"
+            @ref="FileUploader"
+            SelectedTemplate="@(files => builder => {})"
+        />
+        <MudButton Disabled="_isFilesUploading" Variant="Variant.Filled" @onclick="OnUploadButtonPressed">Upload</MudButton>
+
+        @if(_isFilesUploading || _uploadProgress > 0)
+        {
+            <MudProgressLinear Value="_uploadProgress"/>
+            <MudText>@_uploadProgressText</MudText>
+        }
+
+        <MudExpansionPanels>
+            <MudExpansionPanel Text="@($"({_filesToUpload.Count}) files")">
+                <MudList T="IBrowserFile">
+                    @foreach(IBrowserFile file in _filesToUpload)
+                    {
+                        <MudListItem>
+                            <MudStack 
+                                AlignItems="AlignItems.Center" 
+                                Justify="Justify.SpaceBetween"
+                                Row
+                            >
+                                <MudText>@file.Name</MudText>
+                                <MudIconButton
+                                    Disabled="_isFilesUploading"
+                                    Icon="@Icons.Material.Filled.Close"
+                                    OnClick="(async () => await RemoveFileFromUploadFilesAsync(file))"
+                                />
+                            </MudStack>
+                        </MudListItem>
+                    }
+                </MudList>
+            </MudExpansionPanel>
+        </MudExpansionPanels>
+    </MudStack>
+</MudPaper>

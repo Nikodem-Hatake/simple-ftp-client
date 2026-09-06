@@ -7,7 +7,7 @@
     >
         <ConnectionFormComponent
             FTPClient="_ftpClient"
-            OnSuccessfullConnectionEventCallback="OnSuccessfullConnection"
+            OnSuccessfullConnectionEventCallback="GetItemsAsync"
         />
     </MudItem>
     <MudItem
@@ -17,6 +17,10 @@
         <ConnectionItemsComponent
             FTPClient="_ftpClient"
             @ref="ConnectionItemsComponent"
+        />
+        <FilesUploadComponent 
+            FTPClient="_ftpClient"
+            OnUploadedEventCallback="GetItemsAsync"
         />
     </MudItem>
 </MudGrid>

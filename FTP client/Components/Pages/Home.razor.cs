@@ -8,5 +8,5 @@ public partial class Home
     public ConnectionItemsComponent ConnectionItemsComponent { get; set; }
     private AsyncFtpClient _ftpClient = new();
 
-    private async Task OnSuccessfullConnection() => await ConnectionItemsComponent.GetItemsAsync();
+    private async Task GetItemsAsync() => await ConnectionItemsComponent.GetItemsAsync();
 }
