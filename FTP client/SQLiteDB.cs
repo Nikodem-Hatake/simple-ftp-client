@@ -13,7 +13,7 @@ public class SQLiteDB
         _connection.CreateTableAsync<DownloadsPath>().Wait();
         if(_connection.Table<DownloadsPath>().FirstOrDefaultAsync().Result is null)
         {
-            _connection.InsertAsync(new DownloadsPath() { Path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) });
+            _connection.InsertAsync(new DownloadsPath() { Path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) }).Wait();
         }
     }
 

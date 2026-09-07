@@ -18,7 +18,10 @@ public partial class DownloadPathPickerComponent(ISnackbar snackbar, SQLiteDB SQ
         try
         {
             var result = await FolderPicker.PickAsync(_path);
-            _path = result.Folder.Path;
+            if(result is not null)
+            {
+                _path = result.Folder.Path;
+            }
         }
         catch(Exception e)
         {
