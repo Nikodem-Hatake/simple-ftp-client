@@ -1,6 +1,39 @@
 ﻿<MudIconButton 
     Icon="@Icons.Material.Filled.FileDownload"
-    @onclick="OnDownloadButtonPressed"
+    OnClick="DownloadFile"
 />
-<MudIconButton Icon="@Icons.Material.Filled.Edit" />
-<MudIconButton Icon="@Icons.Material.Filled.Delete" />
+<MudIconButton 
+    Icon="@Icons.Material.Filled.CreateNewFolder"
+    OnClick="CreateNewFolder"
+/>
+<MudIconButton 
+    Icon="@Icons.Material.Filled.Edit"
+    OnClick="EditItemName"
+/>
+<MudIconButton 
+    Icon="@Icons.Material.Filled.Delete"
+    OnClick="DeleteItem"
+/>
+<MudSpacer/>
+@if(IsConnected)
+{
+    <MudIcon 
+        Color="Color.Success"
+        Icon="@Icons.Material.Filled.Wifi"
+    />
+}
+else
+{
+    <MudIcon
+        Color="Color.Error"
+        Icon="@Icons.Material.Filled.SignalWifiOff"    
+    />   
+}
+<MudIconButton 
+    Icon="@Icons.Material.Filled.Refresh"
+    OnClick="Refresh"
+/>
+<MudIconButton 
+    Icon="@Icons.Material.Filled.KeyboardReturn"
+    OnClick="ChangeWorkingDirectoryToPrevious"
+/>

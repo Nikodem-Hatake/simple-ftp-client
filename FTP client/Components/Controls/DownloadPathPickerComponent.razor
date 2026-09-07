@@ -1,0 +1,4 @@
+﻿<MudPaper class="d-flex my-5 pa-5">
+    <MudText>Downloads path</MudText>
+    <MudButton class="ml-3" Variant="Variant.Outlined" OnClick="ChangePathAsync">@(_path.Length > 25 ? $"{_path.Substring(0, 22)}..." : _path)</MudButton>
+</MudPaper>

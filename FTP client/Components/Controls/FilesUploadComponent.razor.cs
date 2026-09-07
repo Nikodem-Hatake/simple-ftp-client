@@ -44,7 +44,7 @@ public partial class FilesUploadComponent(ISnackbar snackbar)
         catch(Exception e)
         {
             _uploadProgressText = $"Uploading failed on file named: {_filesToUpload[i].Name}";
-            _snackbar.Add($"Error: {e.Message}");
+            _snackbar.Add($"Error: {e.Message}", Severity.Error);
         }
 
         await OnUploadedEventCallback.InvokeAsync();

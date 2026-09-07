@@ -16,10 +16,6 @@ public static class ItemIconConverter
             {
                 return Icons.Material.Filled.InsertDriveFile;
             }
-            case FtpObjectType.Directory:
-            {
-                return Icons.Material.Filled.Folder;
-            }
             default:
             {
                 return Icons.Material.Filled.Link;

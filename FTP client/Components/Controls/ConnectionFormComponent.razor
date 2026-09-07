@@ -1,18 +1,37 @@
 ﻿<MudCard>
     <MudCardContent>
+        <MudIconButton
+            Icon="@Icons.Material.Filled.FileOpen"   
+            OnClick="LoadConnectionProfile"
+        />
+        <MudIconButton 
+            Icon="@Icons.Material.Filled.Save"
+            OnClick="SaveConnectionProfile"
+        />
+        <MudIconButton 
+            Icon="@Icons.Material.Filled.Delete"
+            OnClick="DeleteConnectionProfile"
+        />
+
         <MudForm>
             <MudTextField
-                @bind-Value="_serverAddress"
-                Label="Server address"
+                @bind-Value="_connectionParameters.Host"
+                Label="Host"
             />
             <MudTextField
-                @bind-Value="_userName"
+                @bind-Value="_connectionParameters.UserName"
                 Label="User name"
             />
             <MudTextField
-                @bind-Value="_password"
-                Label="password"
+                @bind-Value="_connectionParameters.Password"
+                Label="Password"
                 InputType="InputType.Password"
+            />
+            <MudNumericField
+                @bind-Value="_connectionParameters.Port"
+                Label="Port"
+                Max="@UInt16.MaxValue"
+                Min="0"
             />
         </MudForm>
     </MudCardContent>

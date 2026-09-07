@@ -1,0 +1,22 @@
+﻿<MudDialog>
+    <DialogContent>
+        <MudSelect 
+            @bind-Value="_connectionParameters"
+            Label="Connection profile to load"
+            Variant="Variant.Filled"
+        >
+            @foreach(ConnectionParameters connectionParameters in _connectionParametersList)
+            {
+                <MudSelectItem Value="connectionParameters">@connectionParameters.Name</MudSelectItem>
+            }
+        </MudSelect>
+    </DialogContent>
+
+    <DialogActions>
+        <MudIconButton 
+            Icon="@Icons.Material.Filled.FileOpen"
+            OnClick="Close"
+        />
+        <MudButton OnClick="MudDialog.Cancel">Cancel</MudButton>
+    </DialogActions>
+</MudDialog>

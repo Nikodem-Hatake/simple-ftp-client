@@ -27,19 +27,41 @@
     <ToolBarContent>
         <ItemsManagingButtonsComponent 
             FTPClient="FTPClient"
+            OnItemsChangeEventCallback="GetItemsAsync"
+            @ref="_itemsManagingButtonsComponent"
             SelectedItem="_selectedItem"
         />
     </ToolBarContent>
 
     <HeaderContent>
-        <MudTh>Name</MudTh>
-        <MudTh>Size</MudTh>
-        <MudTh>Last modified</MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<FtpListItem, object>(x => x.Name)">Name</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<FtpListItem, object>(x => x.Size)">Size</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<FtpListItem, object>(x => x.Modified)">Last modified</MudTableSortLabel></MudTh>
     </HeaderContent>
 
     <RowTemplate>
-        <MudTd><MudIcon Icon="@ItemIconConverter.Convert(context.Type)"/> @context.Name</MudTd>
-        <MudTd>@ByteSizeConverter.Convert(context.Size)</MudTd>
+        @if(context.Type == FluentFTP.FtpObjectType.Directory)
+            {
+                <MudTd>
+                    <MudIconButton
+                        Icon="@Icons.Material.Filled.FolderOpen"
+                        OnClick="(() => ChangeWorkingDirectory(context))"
+                    />
+                    <text> @context.Name</text>
+                </MudTd>
+                <MudTd>...</MudTd>
+            }
+            else
+            {
+                <MudTd>
+                    <MudIconButton 
+                        Disabled="true" 
+                        Icon="@ItemIconConverter.Convert(context.Type)"
+                    />
+                    <text> @context.Name</text>
+                </MudTd>
+                <MudTd>@ByteSizeConverter.Convert(context.Size)</MudTd>
+            }
         <MudTd>@context.Modified.ToString("dd.MM.yyyy HH:mm:ss")</MudTd>
     </RowTemplate>
 

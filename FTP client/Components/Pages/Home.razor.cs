@@ -9,4 +9,6 @@ public partial class Home
     private AsyncFtpClient _ftpClient = new();
 
     private async Task GetItemsAsync() => await ConnectionItemsComponent.GetItemsAsync();
+
+    private async Task OnPathPicked(string path) => await ConnectionItemsComponent.OnPathPicked(path);
 }

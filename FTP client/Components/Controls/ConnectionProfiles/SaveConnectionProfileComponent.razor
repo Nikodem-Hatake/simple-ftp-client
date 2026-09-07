@@ -1,0 +1,16 @@
+﻿<MudDialog>
+    <DialogContent>
+        <MudTextField 
+            @bind-Value="_name" 
+            Label="Name"
+        />
+    </DialogContent>
+
+    <DialogActions>
+        <MudIconButton 
+            Icon="@Icons.Material.Filled.Save"
+            OnClick="Close"
+        />
+        <MudButton OnClick="MudDialog.Cancel">Cancel</MudButton>
+    </DialogActions>
+</MudDialog>
