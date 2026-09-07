@@ -4,9 +4,9 @@ Simple ftp client for android, ios, mac and windows using .net MAUI Blazor hybri
 
 ## Layout for android
 <img src="README.images/main layout android.png" height="500">
-On this screen you can see connection form with save, delete and load connection profiles 
+On this screen you can see dark/light mode switch at the top, connection form with save, delete 
 <br/>
-which holds host name, user name, password and port number.
+and load connection profiles which holds host name, user name, password and port number.
 <br/>
 <br/>
 Below that there is downloads path picker.
